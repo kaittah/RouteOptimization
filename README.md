@@ -31,6 +31,9 @@ Cases 'B' and 'C', and '30' each have 30 minute long delivery windows for orders
 |Avg. Cost |2983.4|2982.8|2965.2|
 |Avg. Distance (m)|21240.8|21383.5|21067.1|
 
+A summary of average distances for all routes is shown below.
+![Box plots](https://github.com/kaittah/RouteOptimization/blob/main/images/distancesboxplot.png?raw=true)
+
 To obtain these averages, random order times, customer locations, and restaurant locations were generated 20 times. Then, the allowable time windows were derived for each of the cases and the routes were optimized and plots were made (some of which are below). Note that all the pickup and dropoff locations are the same, the only difference is that the times that food is delivered to each stop may vary in each situation.
 
 ![Image of route plots](https://github.com/kaittah/RouteOptimization/blob/main/images/trial0plots.png?raw=true)
