@@ -19,7 +19,11 @@ In another scenario, customers place orders for food to be delivered at a random
 
 Case 'A' should lead to the most efficient routes because, with the largest time windows for deliveries to be made, the routing algorithm had the most flexibility to optimize. Cases '10' and '20' have the shortest time windows, leading to the lesat flexibility. Cases 'B' and 'C', and '30' each have 30 minute long delivery windows for orders. To understand the difference, consider 2 neighbors who place orders at the same restaurant, but one neighbor wants food at 12:20 while the other wants food at 12:40. In Case 'B', the food can be delivered to the neighbors at the same time only if the neighbors receive food at 12:30pm. In cases 'C' and '30', due to the overlapping time windows, there is a wider range of times available for the food to be delivered in the same stop, giving the algorithm more flexibility. 
 
-Random order times, customer locations, and restaurant locations were generated 20 times. Then, the allowable time windows were derived for each of the cases and the routes were optimized and plotted. Finally the results were compared.
+Random order times, customer locations, and restaurant locations were generated 20 times. Then, the allowable time windows were derived for each of the cases and the routes were optimized and plots were made (some of which are below). Note that all the pickup and dropoff locations are the same, the only difference is that the times that food is delivered to each stop may vary in each situation.
+
+
+
+
 
 
 
