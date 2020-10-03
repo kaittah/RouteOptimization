@@ -18,7 +18,7 @@ case_results = {}
 for key in cases:
     case_results[key] = {'delivery_counts':[], 'costs':[], 'distances':[]}
 
-for repetition in range(10):
+for repetition in range(15):
     for case in cases:
         delivery_count, cost, distance = read_output(case, repetition)
         case_results[case]['delivery_counts'].append(delivery_count)
@@ -37,11 +37,12 @@ for case in case_results.keys():
 df = pd.concat(dataframes)
 
 fig, axes = plt.subplots()
-axes.violinplot(dataset = [ df[df.Case == 'A']['distances'].values,
-                            df[df.Case == 'B']['distances'].values,
-                            df[df.Case == 'C']['distances'].values,
-                            df[df.Case == 10]['distances'].values,
-                            df[df.Case == 20]['distances'].values,
-                            df[df.Case == 30]['distances'].values ])
+sns.boxplot(data =  [   df[df.Case == 'A']['distances'].values,
+                        df[df.Case == 'B']['distances'].values,
+                        df[df.Case == 'C']['distances'].values,
+                        df[df.Case == 10]['distances'].values,
+                        df[df.Case == 20]['distances'].values,
+                        df[df.Case == 30]['distances'].values 
+                        ]).set_title('Distances of solution to route optimization, 20 repetitions')
 plt.show()
                                     

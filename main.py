@@ -1,5 +1,6 @@
 import json
 import random
+import time
 
 import pandas as pd
 
@@ -18,8 +19,8 @@ number_of_orders = 21
 min_time = delivery_times['min']
 max_time = delivery_times['max']
 pickup_time = [delivery_times['min'] - 30*60, delivery_times['max']]  
-pickup_dur = 2 #time to pick up order
-dropoff_dur = 2 #time to drop off order
+pickup_dur = 3 #time to pick up order
+dropoff_dur = 3 #time to drop off order
 num_drivers = 3 
 car_capacity = 10 #max number of orders a car can hold
 car_start = [-71.061033, 42.358157] #starting vehicle location
@@ -29,16 +30,17 @@ buffers = [10,20,30]
 cases = ['A','B','C']
 
 #number of repetitions
-N=10
+N=20
 
 #define vehicles and shipments for routes
 vehicles = [Vehicle(j, car_capacity, car_start) for j in range(num_drivers)]
 
 unopt_distances = []
-for repetition in range(N):
+for repetition in range(8, N):
+    time.sleep(60) #avoid maxing out API token quota
     shipment_cases = {}
     
-    for i in range(number_of_orders):
+    for i in range(8,number_of_orders):
         #get random restaurant, delivery address, and time for order
         restaurant_loc, customer_loc, order_time, time_formatted = get_random_orders()
 
