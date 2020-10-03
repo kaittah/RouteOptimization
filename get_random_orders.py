@@ -1,6 +1,7 @@
 import csv
 from datetime import datetime, timezone, timedelta
 import matplotlib.pyplot as plt
+import matplotlib.ticker as ticker
 import seaborn as sns
 import random
 
@@ -25,12 +26,10 @@ def get_random_orders():
         restaurant_loc = next(restaurant_reader)
         customer_loc = next(customer_reader)
     
-    time_window = delivery_times['max'] - delivery_times['min']
-    time_buffer = 60*5
-
-    order_time_array = range(delivery_times['min'] + time_buffer, delivery_times['max']-time_buffer, (time_window-2*time_buffer)//5) 
-    weight_array = [.7, .2, .08, .05, .02]
-    order_time = random.choices(order_time_array, weights = weight_array)[0] + random.randrange(-time_buffer, time_buffer)
+    time_window = delivery_times['max']- delivery_times['min']
+    order_time = int(random.normalvariate(delivery_times['peak'], time_window//3))
+    while order_time < delivery_times['min'] or order_time > delivery_times['max']:
+        order_time = int(random.normalvariate(delivery_times['peak'], time_window//3))
     time_of_stop = datetime.fromtimestamp(int(order_time), est_tz)
     time_formatted = time_of_stop.strftime('%I:%M')
 
@@ -42,9 +41,11 @@ def get_random_orders():
     return restaurant_coords, customer_coords, order_time, time_formatted
 
 def graph_order_times(N):
+    fig, ax = plt.subplots()
     order_times = [get_random_orders()[2] for i in range(N)]
-    orderplot = sns.displot(data=order_times, kde=True, rug =True)
-
+    orderplot = sns.histplot(ax = ax, data=order_times, kde=True)
+    ax.xaxis.set_major_formatter(ticker.FuncFormatter(lambda x, pos: datetime.fromtimestamp(x).strftime('%I:%M')))
+    plt.title(f'Random Order Time Distribution (N={N})')
     plt.show()
 
 

@@ -4,6 +4,7 @@ est_tz = timezone(offset=timedelta(hours=-4))
 
 delivery_times = {
                     'min': int(datetime(2020, 10, 1, 12, 0, tzinfo = est_tz).timestamp()),
+                    'peak': int(datetime(2020, 10, 1, 12, 5, tzinfo = est_tz).timestamp()),
                     '11:30': int(datetime(2020, 10, 1, 11, 30, tzinfo = est_tz).timestamp()),
                     '11:45': int(datetime(2020, 10, 1, 11, 45, tzinfo = est_tz).timestamp()),
                     '12:00': int(datetime(2020, 10, 1, 12, 0, tzinfo = est_tz).timestamp()),
