@@ -1,0 +1,7 @@
+*.csv
+secrets.py
+launch.json
+settings.json
+.vscode
+.env
+
