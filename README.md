@@ -13,7 +13,7 @@ This simulation creates fake restaurant orders for a set number of pretend custo
 
 The orders were strung together into a route optimized using [VROOM](http://vroom-project.org/). Several cases were explored to compare which would lead to the most environmentally-friendly meal delivery.
 
-In one scenario, customers place an order for food to be delivered in a fixed time window. In case 'A', all orders share the time window 12pm - 1pm. Case 'B' splits it into 2 shorter time windows, 12 - 12:30pm and 12:30-1pm. Case 'C' has 3 time windows (12-12:30, 12:15-12:45, and 12:30-1) the are of the same length as those of 'B', the difference being that if a customer wants their food at 12:16pm, they can either select the 12-12:30 or 12:15-12:45 window. 
+In one scenario, customers place an order for food to be delivered in a fixed time window. In case 'A', all orders share the time window 12pm - 1pm. Case 'B' splits it into 2 shorter time windows, 12 - 12:30pm and 12:30-1pm. Case 'C' has 3 time windows (12-12:30, 12:15-12:45, and 12:30-1) that are of the same length as those of 'B', the difference being that if a customer wants their food at 12:16pm, they can either select the 12-12:30 or 12:15-12:45 window. 
 
 In another scenario, customers place orders for food to be delivered at a random time, but the allowable delivery window is either +/5, 10, or 15 mintues (case '10', '20', and '30', respectively) around that designated time. Deliveries were still limited to between 12-1pm.
 
@@ -38,7 +38,7 @@ To obtain these averages, random order times, customer locations, and restaurant
 
 ![Image of route plots](https://github.com/kaittah/RouteOptimization/blob/main/images/trial0plots.png?raw=true)
 
-This is a simplified study of a problem faced by delivery services. It proved that meal delivery services can be more efficient than customers driving to pick up food at a restaurant themselves, and that customers' adding flexibility to their delivery time choice will increase efficiency.
+This is a simplified study of a problem faced by delivery services. The experiment may be repeated with different inputs and different parameters. The code provided is adaptable to multiple situations.
 
 
 
